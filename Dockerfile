@@ -1,8 +1,8 @@
 # Use the same Python version as your host system
 FROM python:3.11.8-slim
 
-# Install Nix
-RUN apt-get update && apt-get install -y curl && \
+# Install 'xz-utils' package to enable unpacking of binary tarball for Nix installation
+RUN apt-get update && apt-get install -y curl xz-utils && \
     curl -L https://nixos.org/nix/install | sh
 
 # Set the working directory in the container
