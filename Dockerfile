@@ -5,8 +5,8 @@ FROM python:3.11.8-slim
 WORKDIR /app
 
 # Copy FastAPI and uvicorn from the host system
-COPY --from=/nix/store/1117za49n8shipljh2ldpl6sxpd7gdxi-python3.11-uvicorn-0.23.2 /usr/local/lib/python3.11/site-packages/uvicorn /usr/local/lib/python3.11/site-packages/uvicorn
-COPY --from=/nix/store/r17mx6754l4g2whw0q2ckp6chq2x2n3w-python3.11-fastapi-0.103.1 /usr/local/lib/python3.11/site-packages/fastapi /usr/local/lib/python3.11/site-packages/fastapi
+COPY /nix/store/r17mx6754l4g2whw0q2ckp6chq2x2n3w-python3.11-fastapi-0.103.1 /usr/local/lib/python3.11/site-packages/fastapi
+COPY /nix/store/1117za49n8shipljh2ldpl6sxpd7gdxi-python3.11-uvicorn-0.23.2 /usr/local/lib/python3.11/site-packages/uvicorn
 
 # Copy your FastAPI project files into the container
 COPY . .
